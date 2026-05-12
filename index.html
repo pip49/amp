@@ -4,57 +4,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Amp Circuit Catalog</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts for better typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <title>Handmade Amp Catalog</title>
+    <style>
+        /* [CSS] 파일 하나로 관리하기 위해 여기에 작성합니다 */
+        :root {
+            --bg-color: #1a1a1a;
+            --card-bg: #252525;
+            --text-color: #e0e0e0;
+            --point-color: #4CAF50; /* 강조색: 초록 */
+            --accent-color: #ff6600; /* 포인트: 오렌지 */
+        }
+
+        body {
+            font-family: 'Malgun Gothic', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0; padding: 0;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        header {
+            padding: 50px 20px;
+            background: #111;
+        }
+
+        header h1 { color: var(--point-color); margin: 0; }
+        .motto { font-style: italic; color: #888; margin-top: 10px; }
+
+        /* 상품 나열 그리드 */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .amp-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .amp-card:hover {
+            border-color: var(--point-color);
+            transform: translateY(-5px);
+        }
+
+        .amp-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            background: #000;
+        }
+
+        .amp-card h3 { margin: 15px 0 10px; color: #fff; }
+        .price { color: var(--accent-color); font-weight: bold; }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 20px;
+            background: var(--point-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        /* 하단 링크 영역 */
+        footer {
+            margin: 50px 0 100px;
+            padding: 20px;
+            border-top: 1px solid #333;
+        }
+
+        .archive-link {
+            color: #aaa;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Header Section -->
     <header>
-        <h1>Handmade Amp Circuit & Guide</h1>
-        <p class="subtitle">진공관 및 트랜지스터 앰프 자작 가이드 & 회로 판매</p>
-        <div class="motto">
-            "꿈을 날짜와 함께 적으면 목표가 되고, 실행에 옮기면 현실이 된다."
-        </div>
+        <h1>My Amp Works</h1>
+        <p>세상에 하나뿐인 나만의 사운드를 만듭니다.</p>
+        <div class="motto">"꿈을 날짜와 함께 적으면 목표가 되고, 실행에 옮기면 현실이 된다."</div>
     </header>
 
-    <!-- Main Gallery -->
-    <main>
-        <div class="grid-container" id="gallery">
-            <!-- Items will be injected by JavaScript -->
+    <div class="container">
+        <div class="amp-card">
+            <img src="assets/images/amp1.jpg" alt="앰프 사진" onerror="this.src='https://via.placeholder.com/300x200?text=Amp+Photo'">
+            <h3>Class A 트랜지스터 앰프</h3>
+            <p>풍부한 배음과 따뜻한 음색을 자랑하는 A급 증폭 회로입니다.</p>
+            <p class="price">판매가: 50,000원 (회로도+지시서)</p>
+            <a href="mailto:내이메일@주소.com" class="btn">구매 문의하기</a>
         </div>
-    </main>
 
-    <!-- Loading Overlay (Film Countdown style) -->
-    <div id="loading-overlay">
-        <div id="countdown-num">3</div>
-        <p id="loading-msg">ANALYZING CIRCUIT DESIGN...</p>
-    </div>
-
-    <!-- Detail Modal -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" id="close-modal">&times;</span>
-            <div class="modal-body">
-                <img id="modal-img" src="" alt="Circuit Detail">
-                <h2 id="modal-title">Amplifier Unit</h2>
-                <div id="modal-desc"></div>
-                <div class="purchase-info">
-                    <p>💡 이 회로의 상세 지시서 및 부품 리스트를 구매하시겠습니까?</p>
-                    <button class="buy-btn">구매 문의하기</button>
-                </div>
-            </div>
+        <div class="amp-card">
+            <img src="assets/images/amp2.jpg" alt="앰프 사진" onerror="this.src='https://via.placeholder.com/300x200?text=Amp+Photo'">
+            <h3>블루스 톤 프리앰프</h3>
+            <p>기타 연주자를 위한 최적화된 톤 컨트롤 회로 가이드입니다.</p>
+            <p class="price">판매가: 45,000원</p>
+            <a href="https://open.kakao.com/o/..." target="_blank" class="btn">카톡 오픈챗 문의</a>
         </div>
-    </div>
 
-    <!-- Bottom Audio Player -->
-    <footer class="player-box">
-        <div id="playing-now">회로를 선택하여 샘플 사운드를 감상하세요</div>
-        <audio id="main-audio" controls></audio>
+        </div>
+
+    <footer>
+        <p>문의: pip49@example.com</p>
+        <p>
+            <a href="https://github.com/내계정/이전저장소" class="archive-link">지난 상품(아카이브) 보러가기</a>
+        </p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
