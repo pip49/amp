@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Amp Circuit Catalog</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Handmade Amp Circuit & Guide</h1>
+        <p class="subtitle">진공관 및 트랜지스터 앰프 자작 가이드 & 회로 판매</p>
+        <div class="motto">
+            "꿈을 날짜와 함께 적으면 목표가 되고, 실행에 옮기면 현실이 된다."
+        </div>
+    </header>
+
+    <!-- Main Gallery -->
+    <main>
+        <div class="grid-container" id="gallery">
+            <!-- Items will be injected by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Loading Overlay (Film Countdown style) -->
+    <div id="loading-overlay">
+        <div id="countdown-num">3</div>
+        <p id="loading-msg">ANALYZING CIRCUIT DESIGN...</p>
+    </div>
+
+    <!-- Detail Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-modal">&times;</span>
+            <div class="modal-body">
+                <img id="modal-img" src="" alt="Circuit Detail">
+                <h2 id="modal-title">Amplifier Unit</h2>
+                <div id="modal-desc"></div>
+                <div class="purchase-info">
+                    <p>💡 이 회로의 상세 지시서 및 부품 리스트를 구매하시겠습니까?</p>
+                    <button class="buy-btn">구매 문의하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Audio Player -->
+    <footer class="player-box">
+        <div id="playing-now">회로를 선택하여 샘플 사운드를 감상하세요</div>
+        <audio id="main-audio" controls></audio>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
