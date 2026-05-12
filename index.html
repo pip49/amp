@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Handmade Amp Catalog</title>
     <style>
-        /* [CSS] 파일 하나로 관리하기 위해 여기에 작성합니다 */
         :root {
             --bg-color: #1a1a1a;
             --card-bg: #252525;
             --text-color: #e0e0e0;
-            --point-color: #4CAF50; /* 강조색: 초록 */
-            --accent-color: #ff6600; /* 포인트: 오렌지 */
+            --point-color: #4CAF50;
+            --accent-color: #ff6600;
+        }
+
+        /* 스무스 스크롤 추가 */
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -22,6 +26,8 @@
             margin: 0; padding: 0;
             line-height: 1.6;
             text-align: center;
+            /* 텍스트 렌더링 최적화 */
+            -webkit-font-smoothing: antialiased;
         }
 
         header {
@@ -32,7 +38,6 @@
         header h1 { color: var(--point-color); margin: 0; }
         .motto { font-style: italic; color: #888; margin-top: 10px; }
 
-        /* 상품 나열 그리드 */
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -47,7 +52,10 @@
             border-radius: 10px;
             padding: 20px;
             border: 1px solid #333;
-            transition: 0.3s;
+            /* 깜빡임 방지 최적화 */
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            will-change: transform;
+            backface-visibility: hidden;
         }
 
         .amp-card:hover {
@@ -61,6 +69,8 @@
             object-fit: cover;
             border-radius: 5px;
             background: #000;
+            /* 이미지 로딩 시 깜빡임 방지 */
+            display: block;
         }
 
         .amp-card h3 { margin: 15px 0 10px; color: #fff; }
@@ -69,15 +79,17 @@
         .btn {
             display: inline-block;
             margin-top: 15px;
-            padding: 8px 20px;
+            padding: 10px 25px;
             background: var(--point-color);
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-size: 0.9rem;
+            transition: opacity 0.2s;
         }
 
-        /* 하단 링크 영역 */
+        .btn:hover { opacity: 0.8; }
+
         footer {
             margin: 50px 0 100px;
             padding: 20px;
@@ -101,27 +113,24 @@
 
     <div class="container">
         <div class="amp-card">
-            <img src="assets/images/amp1.jpg" alt="앰프 사진" onerror="this.src='https://via.placeholder.com/300x200?text=Amp+Photo'">
+            <img src="assets/images/amp1.jpg" alt="Class A 앰프" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=No+Image'">
             <h3>Class A 트랜지스터 앰프</h3>
             <p>풍부한 배음과 따뜻한 음색을 자랑하는 A급 증폭 회로입니다.</p>
             <p class="price">판매가: 50,000원 (회로도+지시서)</p>
-            <a href="mailto:내이메일@주소.com" class="btn">구매 문의하기</a>
+            <a href="mailto:pip49@example.com" class="btn">구매 문의하기</a>
         </div>
 
         <div class="amp-card">
-            <img src="assets/images/amp2.jpg" alt="앰프 사진" onerror="this.src='https://via.placeholder.com/300x200?text=Amp+Photo'">
+            <img src="assets/images/amp2.jpg" alt="블루스 톤 프리앰프" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=No+Image'">
             <h3>블루스 톤 프리앰프</h3>
             <p>기타 연주자를 위한 최적화된 톤 컨트롤 회로 가이드입니다.</p>
             <p class="price">판매가: 45,000원</p>
-            <a href="https://open.kakao.com/o/..." target="_blank" class="btn">카톡 오픈챗 문의</a>
+            <a href="#" class="btn">카톡 오픈챗 문의</a>
         </div>
-
-        </div>
-
-    <footer>
+    </div> <footer>
         <p>문의: pip49@example.com</p>
         <p>
-            <a href="https://github.com/내계정/이전저장소" class="archive-link">지난 상품(아카이브) 보러가기</a>
+            <a href="#" class="archive-link">지난 상품(아카이브) 보러가기</a>
         </p>
     </footer>
 
